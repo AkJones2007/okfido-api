@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110154501) do
+ActiveRecord::Schema.define(version: 20151110154803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20151110154501) do
     t.datetime "updated_at", null: false
     t.string   "hex_code"
   end
+
+  add_index "colors", ["name"], name: "index_colors_on_name", unique: true, using: :btree
 
   create_table "dog_photos", force: :cascade do |t|
     t.string   "url"
