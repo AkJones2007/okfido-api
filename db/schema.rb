@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110155732) do
+ActiveRecord::Schema.define(version: 20151110160153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20151110155732) do
   end
 
   add_index "breed_mixes", ["breed_id"], name: "index_breed_mixes_on_breed_id", using: :btree
+  add_index "breed_mixes", ["dog_id", "breed_id"], name: "index_breed_mixes_on_dog_id_and_breed_id", unique: true, using: :btree
   add_index "breed_mixes", ["dog_id"], name: "index_breed_mixes_on_dog_id", using: :btree
 
   create_table "breeds", force: :cascade do |t|
