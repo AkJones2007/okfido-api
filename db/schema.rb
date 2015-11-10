@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110135501) do
+ActiveRecord::Schema.define(version: 20151110140425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(version: 20151110135501) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "dog_photos", force: :cascade do |t|
+    t.string   "url"
+    t.string   "caption"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "dog_id"
+  end
+
+  add_index "dog_photos", ["dog_id"], name: "index_dog_photos_on_dog_id", using: :btree
 
   create_table "dogs", force: :cascade do |t|
     t.string   "name"
@@ -122,6 +132,7 @@ ActiveRecord::Schema.define(version: 20151110135501) do
   add_foreign_key "breed_mixes", "dogs"
   add_foreign_key "color_mixes", "colors"
   add_foreign_key "color_mixes", "dogs"
+  add_foreign_key "dog_photos", "dogs"
   add_foreign_key "dogs", "locations"
   add_foreign_key "dogs", "shelters"
   add_foreign_key "favorites", "dogs"
