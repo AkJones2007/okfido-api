@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20151110141656) do
+=======
+ActiveRecord::Schema.define(version: 20151110160523) do
+>>>>>>> models
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +36,7 @@ ActiveRecord::Schema.define(version: 20151110141656) do
   end
 
   add_index "breed_mixes", ["breed_id"], name: "index_breed_mixes_on_breed_id", using: :btree
+  add_index "breed_mixes", ["dog_id", "breed_id"], name: "index_breed_mixes_on_dog_id_and_breed_id", unique: true, using: :btree
   add_index "breed_mixes", ["dog_id"], name: "index_breed_mixes_on_dog_id", using: :btree
 
   create_table "breeds", force: :cascade do |t|
@@ -41,6 +46,8 @@ ActiveRecord::Schema.define(version: 20151110141656) do
     t.datetime "updated_at",         null: false
   end
 
+  add_index "breeds", ["name"], name: "index_breeds_on_name", unique: true, using: :btree
+
   create_table "color_mixes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,6 +56,7 @@ ActiveRecord::Schema.define(version: 20151110141656) do
   end
 
   add_index "color_mixes", ["color_id"], name: "index_color_mixes_on_color_id", using: :btree
+  add_index "color_mixes", ["dog_id", "color_id"], name: "index_color_mixes_on_dog_id_and_color_id", unique: true, using: :btree
   add_index "color_mixes", ["dog_id"], name: "index_color_mixes_on_dog_id", using: :btree
 
   create_table "colors", force: :cascade do |t|
@@ -57,6 +65,8 @@ ActiveRecord::Schema.define(version: 20151110141656) do
     t.datetime "updated_at", null: false
     t.string   "hex_code"
   end
+
+  add_index "colors", ["name"], name: "index_colors_on_name", unique: true, using: :btree
 
   create_table "dog_photos", force: :cascade do |t|
     t.string   "url"
@@ -96,6 +106,7 @@ ActiveRecord::Schema.define(version: 20151110141656) do
   end
 
   add_index "favorites", ["dog_id"], name: "index_favorites_on_dog_id", using: :btree
+  add_index "favorites", ["user_id", "dog_id"], name: "index_favorites_on_user_id_and_dog_id", unique: true, using: :btree
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
@@ -105,6 +116,8 @@ ActiveRecord::Schema.define(version: 20151110141656) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "locations", ["city", "state"], name: "index_locations_on_city_and_state", unique: true, using: :btree
+
   create_table "shelters", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",  null: false
@@ -113,6 +126,7 @@ ActiveRecord::Schema.define(version: 20151110141656) do
   end
 
   add_index "shelters", ["location_id"], name: "index_shelters_on_location_id", using: :btree
+  add_index "shelters", ["name", "location_id"], name: "index_shelters_on_name_and_location_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
