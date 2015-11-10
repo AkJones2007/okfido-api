@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   delete '/logout/:id' => 'auth#logout'
 
   resources :users, except: [:new, :edit]
+  resources :dogs, except: [:new, :edit]
+  resources :breeds, except: [:new, :edit]
+  resources :colors, except: [:new, :edit]
+  resources :shelters, except: [:new, :edit]
+  resources :locations, except: [:new, :edit]
 
-  resources :books, except: [:new, :edit]
 end
