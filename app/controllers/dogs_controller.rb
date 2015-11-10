@@ -23,6 +23,16 @@ class DogsController < ApplicationController
     end
   end
 
+  # Update a dog
+  def update
+    dog = Dog.find(params[:id])
+    if dog.update(dog_params)
+      render json: dog
+    else
+      render json: dog.errors, status: :unprocessable_entity
+    end
+  end
+
   # Delete a dog
   def destroy
     dog = Dog.find(params[:id])
