@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20151110160523) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "hex_code"
   end
 
   add_index "colors", ["name"], name: "index_colors_on_name", unique: true, using: :btree
