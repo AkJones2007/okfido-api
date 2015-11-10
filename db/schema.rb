@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110160153) do
+ActiveRecord::Schema.define(version: 20151110160523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20151110160153) do
   end
 
   add_index "color_mixes", ["color_id"], name: "index_color_mixes_on_color_id", using: :btree
+  add_index "color_mixes", ["dog_id", "color_id"], name: "index_color_mixes_on_dog_id_and_color_id", unique: true, using: :btree
   add_index "color_mixes", ["dog_id"], name: "index_color_mixes_on_dog_id", using: :btree
 
   create_table "colors", force: :cascade do |t|
