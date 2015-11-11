@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources :colors, except: [:new, :edit]
   resources :shelters, except: [:new, :edit]
   resources :locations, except: [:new, :edit]
+  resources :favorites, except: [:new, :edit]
 
 end
