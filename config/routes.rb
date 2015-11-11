@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :locations, except: [:new, :edit]
   resources :favorites, except: [:new, :edit]
   resources :breed_mixes, except: [:new, :edit]
+  resources :color_mixes, except: [:new, :edit]
 
 
 end
