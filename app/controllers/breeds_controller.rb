@@ -29,6 +29,8 @@ class BreedsController < ApplicationController
     breed.destroy
   end
 
+  private
+
   # Strong params
   def breed_params
     params.require(:breed).permit(:name)

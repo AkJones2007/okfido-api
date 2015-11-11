@@ -39,6 +39,8 @@ class FavoritesController < ApplicationController
     favorite.destroy
   end
 
+  private
+
   # Strong params
   def favorite_params
     params.require(:favorite).permit(:dog_id)

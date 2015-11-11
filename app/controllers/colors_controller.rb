@@ -28,6 +28,8 @@ class ColorsController < ApplicationController
     color.destroy
   end
 
+  private
+
   # Strong Params
   def color_params
     params.require(:color).permit(:name)
