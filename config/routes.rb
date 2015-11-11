@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   resources :shelters, except: [:new, :edit]
   resources :locations, except: [:new, :edit]
   resources :favorites, except: [:new, :edit]
+  resources :breed_mixes, except: [:new, :edit]
+
 
 end
