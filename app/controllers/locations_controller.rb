@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-
+  skip_before_action :authenticate, only: [:index, :create]
   # Show all of the locations
   def index
     locations = Location.all
