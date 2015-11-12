@@ -1,4 +1,5 @@
 class DogsController < ApplicationController
+  skip_before_action :authenticate, only: :list_breeds
 
   # Show me ALL THE DOGS
   def index
@@ -10,6 +11,12 @@ class DogsController < ApplicationController
   def show
     dog = Dog.find(params[:id])
     render json: dog
+  end
+
+  # Show me a dog's breed mix
+  def list_breeds
+    dog = Dog.find(params[:id])
+    render json: dog.breeds
   end
 
   # Create a dog
