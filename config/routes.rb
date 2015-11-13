@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/dog/colors/:id' => 'dogs#list_colors'
 
   resources :breeds, except: [:new, :edit]
+  get '/breed/dogs/:id' => 'breeds#list_dogs'
+
   resources :colors, except: [:new, :edit]
   resources :shelters, except: [:new, :edit]
   resources :locations, except: [:new, :edit]
