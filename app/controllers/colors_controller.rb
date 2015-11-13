@@ -1,4 +1,6 @@
 class ColorsController < ApplicationController
+  skip_before_action :authenticate, only: :list_dogs
+
   # Show all colors
   def index
     colors = Color.all
@@ -9,6 +11,12 @@ class ColorsController < ApplicationController
   def show
     color = Color.find(params[:id])
     render json: color
+  end
+
+  # Show all dogs of a given color
+  def list_dogs
+    color = Color.find(params[:id])
+    render json: color.dogs
   end
 
   # Create a color
