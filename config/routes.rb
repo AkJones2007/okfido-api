@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :dogs, except: [:new, :edit]
   get '/dog/breeds/:id' => 'dogs#list_breeds'
+  get '/dog/colors/:id' => 'dogs#list_colors'
 
   resources :breeds, except: [:new, :edit]
   resources :colors, except: [:new, :edit]
