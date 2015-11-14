@@ -1,10 +1,10 @@
 class DogsController < ApplicationController
-  skip_before_action :authenticate, only: :list_breeds
+  skip_before_action :authenticate, only: :index
 
   # Show me ALL THE DOGS
   def index
-    dogs = Dog.all
-    render json: dogs
+    @dogs = Dog.all
+    render json: @dogs, each_serializer: DogSerializer, root: 'dogs'
   end
 
   # Show me one dog
