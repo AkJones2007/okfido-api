@@ -1,5 +1,5 @@
 class ColorsController < ApplicationController
-  skip_before_action :authenticate, only: :list_dogs
+  skip_before_action :authenticate, only: :index
 
   # Show all colors
   def index

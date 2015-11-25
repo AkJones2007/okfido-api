@@ -1,5 +1,5 @@
 class BreedsController < ApplicationController
-  skip_before_action :authenticate, only: :list_dogs
+  skip_before_action :authenticate, only: :index
 
   # Show all breeds
   def index

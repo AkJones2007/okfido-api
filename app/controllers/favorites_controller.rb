@@ -1,5 +1,7 @@
 class FavoritesController < ApplicationController
 
+  skip_before_action :authenticate, only: :index
+
   # Show all favorites for the current user
   def index
     favorites = current_user.dogs.all
