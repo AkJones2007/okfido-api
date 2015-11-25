@@ -44,8 +44,3 @@ module Project2Api
     end
   end
 end
-
-config.action_dispatch.default_headers = {
-    'Access-Control-Allow-Origin' => 'http://akjones2007.github.io/okfido/',
-    'Access-Control-Request-Method' => %w{GET POST PATCH DELETE OPTIONS}.join(",")
-}
