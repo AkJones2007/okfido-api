@@ -24,7 +24,6 @@ class FavoritesController < ApplicationController
   # Add a favorite for the current user
   def create
     favorite = Favorite.new(favorite_params)
-    favorite.user_id = current_user.id
 
     if favorite.save
       render json: favorite
@@ -45,7 +44,7 @@ class FavoritesController < ApplicationController
 
   # Strong params
   def favorite_params
-    params.require(:favorite).permit(:dog_id)
+    params.require(:favorite).permit(:dog_id, :user_id)
   end
 
 
