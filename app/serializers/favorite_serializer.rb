@@ -1,3 +1,3 @@
 class FavoriteSerializer < ActiveModel::Serializer
-  attributes :dog
+  attributes :id, :dog_id, :user_id
 end
