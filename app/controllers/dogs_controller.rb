@@ -13,18 +13,6 @@ class DogsController < ApplicationController
     render json: dog
   end
 
-  # Show me a dog's breed mix
-  def list_breeds
-    dog = Dog.find(params[:id])
-    render json: dog.breeds
-  end
-
-  # Show me a dog's color mix
-  def list_colors
-    dog = Dog.find(params[:id])
-    render json: dog.colors
-  end
-
   # Create a dog
   def create
     dog = Dog.new(dog_params)

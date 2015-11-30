@@ -13,12 +13,6 @@ class ColorsController < ApplicationController
     render json: color
   end
 
-  # Show all dogs of a given color
-  def list_dogs
-    color = Color.find(params[:id])
-    render json: color.dogs
-  end
-
   # Create a color
   def create
     color = Color.new(color_params)
