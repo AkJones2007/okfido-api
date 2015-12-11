@@ -1,5 +1,5 @@
 class DogSerializer < ActiveModel::Serializer
-  attributes :id, :name, :gender, :dob, :bio, :size, :location, :shelter, :breeds, :colors
+  attributes :id, :name, :gender, :dob, :bio, :size, :location, :shelter, :breeds, :colors, :image
 
   has_one :location
   has_one :shelter
