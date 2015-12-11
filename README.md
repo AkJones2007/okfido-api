@@ -1,64 +1,68 @@
+#OkFido API
 
-# User authentication
+##About OkFido API
 
-## Register
+The OkFido API is a REST API used to implement the back-end for the OkFido web app. This API allows for flexibility due to the robust relationships between each data model.
 
-```
-curl --include --request POST --header "Content-Type: application/json" -d '{
-  "credentials": {
-    "email": "an@example.email",
-    "password": "an example password",
-    "password_confirmation": "an example password"
-  }
-}' http://localhost:3000/register
-```
+##Routes
 
-## Login
+This API implements the following RESTful routes:
+* /login, /register, /users, /users/:id
+* /dogs, /dogs/:id
+* /favorites, /favorites/:id
+* /locations, /locations/:id
+* /shelters, /shelters/:id
+* /breeds, /breeds/:id
+* /colors, /colors/:id
 
-```
-curl --request POST --header "Content-Type: application/json" -d '{
-  "credentials": {
-    "email": "an@example.email",
-    "password": "an example password"
-  }
-}' http://localhost:3000/login
-```
+##Relationships
+* A user has many dogs through favorites
+* A user, dog, and a shelter have one location
+* A dog has many breeds, and a breed belongs to many dogs
+* A dog has many colors, and a color belongs to many dogs
 
-## Logout
+##Models
 
-```
-curl --request DELETE --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/logout/1
-```
+Each model has the following attributes
 
-# Users
+####Dogs
+* Name
+* Gender
+* Date of Birth (DOB)
+* Biography
+* Size
+* Location
+* Breeds
+* Colors
+* Image
 
-## List
+####Users
+* E-Mail
+* Password
+* First Name
+* Last Name
+* Location
 
-```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
-```
+####Breeds
+* Name
 
-# Books
+####Colors
+* Name
 
-## List
+####Location
+* City
+* State
 
-```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
-```
+####Shelters
+* Name
+* Location
 
-**OR**
+##Data Structure
+![okfido_data_structure](https://cloud.githubusercontent.com/assets/13924928/11756939/62f20f5c-a02b-11e5-8ff3-dc1b19bfb203.jpg)
 
-```
-curl http://localhost:3000/users
-```
+##Where to find the app
 
-## Create
+Front-End Repository: [Back-End Repo](https://github.com/AkJones2007/okfido-api)
 
-```
-curl --request POST --header "Authorization: Token token=be249dc0231396806f24c953cafae03a" --header "Content-Type: application/json" -d '{
-  "book": {
-    "title":"The Hold",
-    "isbn":"abc123def456"
-  }
-}'  http://localhost:3000/books
-```
+Front-End App: [Front-End App](http://akjones2007.github.io/okfido/)
+Back-End App: [Back-End App](https://floating-savannah-7491.herokuapp.com/)
