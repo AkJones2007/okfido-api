@@ -35,7 +35,7 @@ module Project2Api
     # Cross-Origin Resource Sharing
     config.middleware.use Rack::Cors do
       allow do
-        origins 'http://AkJones2007.github.io/okfido/'
+        origins '*'
         resource '*',
                  headers: :any,
                  methods: [:options, :get,
